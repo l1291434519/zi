@@ -24,14 +24,27 @@ class Controller implements inController{
 		return $url;
 	}
 	
-	public function show($tmp="",$data=""){
+	public function show($tpl="",$data=""){
 		$data;
         ob_start();
+        
+        if(!empty($this->theme)){
+        	$viewPath = 'themes/'.$this->theme.'/view/'.$tpl.'.php';
+        	if (file_exists($viewPath)) {
+        		require $viewPath;
+        	}else{
+        		echo 'viewPath is not exists';
+        	}
+            
+        }else{
+            $viewPath = 'view/'.$tpl.'.php';
+            if (file_exists($viewPath)) {
+                require $viewPath;
+            }else{
+                echo 'viewPath is not exists';
+            }
+        }
 
-        if(!empty($this->theme))
-            require 'themes/'.$this->theme.'/view/'.$tmp.'.php';
-        else
-            require 'view/'.$tmp.'.php';
             
         ob_end_flush();
 	}

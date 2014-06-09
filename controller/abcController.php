@@ -3,14 +3,9 @@
 class abcController extends Controller{
 
 	public function con(){
-        $sql = "select * from discuz_common_admincp_cmenu";
-        //$model = new model;
-        //$news = $model->getData($sql);
-		$news = Mysql::model();
-		$news->connect();
-		$news->fetch_array($sql);
-		var_dump($news);
-		echo UrlManger::createUrl('aa.php',array('a'=>'c','c'=>1121));
+        $sql = "select title, create_time, id from news where recommend = 1 order by create_time desc limit 0,5";
+        $model = new model;
+        $news = $model->getData($sql);
                // var_dump($news);
                echo __FILE__;
                echo '<br>';

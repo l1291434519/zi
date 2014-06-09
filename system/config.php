@@ -3,7 +3,7 @@
 return array(
 	'cc'=>"aa",
     'dbServer'=>'localhost',
-    'dbDatabase'=>'discuz',
+    'dbDatabase'=>'link3c',
     'dbUser'=>'root',
     'dbPwd'=>'',
 );
